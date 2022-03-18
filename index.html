@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./Assets/style.css" />
+    <title>Project One</title>
+  </head>
+
+  <body>
+
+    <!--Welcome Div-->
+    <section id="homeDiv" class="homeDiv">
+        <h2>I am Bored</h2>
+        <button id="helpButton">Help!</button>
+    </section>
+
+    <!--Options to select-->
+    <section id="searchDiv" class="searchDiv">
+        <button type="button" id="searchActivity">Search Activity</button>
+        <button type="button" id="searchBooks">Search Books</button>  
+        
+        <div id="activities"></div>
+        <div id="books"></div>
+    </section>   
+    <br/>
+
+    <!--Notes Div-->
+    <section id="notesDiv" class="notesDiv">
+        <form>
+            <label>Notes</label>
+            <textarea id="notesId" name="userNotes" rows="10" cols="50"> </textarea>
+            <br><br>
+            <button type="button" id = "saveBtn" value="Save">Save</button>
+            <button type="button" id="sendEmail">Send Email</button>
+                <!-- <a href="mailto:testemail@yopmail.com?subject=Notes from today!">Send Email</a> -->            
+        </form>        
+    </section>
+
+    <script src="./Assets/script.js"></script>
+  </body>
+</html>
