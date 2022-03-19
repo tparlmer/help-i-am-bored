@@ -47,7 +47,7 @@
 }
 
 .container input[type=checkbox]:checked + label > .clicked {
-  background-color: #838b05;
+  background-color: #e0ed09;
   color: #ffffff;
   -webkit-animation: mymove .5s;
           animation: mymove .5s;
@@ -194,19 +194,75 @@
 }
 
 .btn {
-  color: #5b2a2a;
+  height: 5rem;
+  width: 5rem;
+  vertical-align: center;
+  text-align: center;
+  border-radius: 50%;
 }
 
 .help-btn {
-  display: none;
+  font-weight: 900;
+  font-size: x-large;
+  background-color: #c57615;
+  color: #254353;
+  border-radius: 50% 0% 100% 0% / 100% 0% 50% 0%;
 }
 
 .help-btn:hover {
-  background-color: #838b05;
+  background-color: #254353;
+  color: #c57615;
+  height: 8rem;
+  width: 8rem;
+  border-radius: 0% 100% 100% 100% / 100% 100% 100% 100%;
+}
+
+.help-btn::before {
+  -webkit-transform: rotate(-60deg);
+          transform: rotate(-60deg);
+}
+
+.activity-btn {
+  border-radius: 50% 100% 0% 50% / 0% 50% 100% 100%;
+  color: #838b05;
+  background-color: #000000;
+}
+
+.activity-btn:hover {
+  border-radius: 85% 0% 0% 100% / 50% 0% 50% 50%;
+  color: #693f0b;
+  background-color: #a2c4d5;
+}
+
+.book-btn {
+  border-radius: 0% 100% 100% 0% / 50% 50% 50% 50%;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.book-btn:hover {
+  border-radius: 85% 85% 85% 0% / 50% 0% 50% 50%;
+  background-color: #c57615;
+  color: #5b2a2a;
+}
+
+.searchDiv {
+  text-align: center;
 }
 
 .fun-text {
   background-image: linear-gradient(225deg, #838b05, #5b97b6, #5b2a2a, #c57615);
+  -webkit-filter: drop-shadow(0 20px 30px #28d8ff33);
+          filter: drop-shadow(0 20px 30px #28d8ff33);
+  color: black;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-box-decoration-break: clone;
+  font-size: x-large;
+}
+
+.fun-text-2 {
+  background-image: linear-gradient(225deg, #838b05, #7eadc6, #8f4242, #eda853);
   -webkit-filter: drop-shadow(0 20px 30px #28d8ff33);
           filter: drop-shadow(0 20px 30px #28d8ff33);
   color: black;

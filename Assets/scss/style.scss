@@ -48,7 +48,7 @@ $senary-color: #000000;
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
       input[type=checkbox]:checked + label > .clicked {
-        background-color: $primary-color;
+        background-color: lighten($primary-color, 20%);
         color: $quinary-color;
         animation: mymove .5s;
     }
@@ -114,39 +114,78 @@ $senary-color: #000000;
   }
 
   .btn {
-      color: $tertiary-color;
+    height: 5rem;
+    width: 5rem;
+    vertical-align: center;
+    text-align: center;
+    border-radius: 50%;
   }
 
   .help-btn {
-    display: none;
+    //display: none;
+    font-weight: 900;
+    font-size: x-large;
+    background-color: $quaternary-color;
+    color: darken($secondary-color, 30%);
+    border-radius: 50% 0% 100% 0% / 100% 0% 50% 0%;
   }
 
   .help-btn:hover {
-    background-color: $primary-color;
+    background-color: darken($secondary-color, 30%);
+    color: $quaternary-color;
+    height: 8rem;
+    width: 8rem;
+    border-radius: 0% 100% 100% 100% / 100% 100% 100% 100%;
+  }
+
+  .help-btn::before {
+      transform: rotate(-60deg);
   }
 
   .activity-btn {
-
+    border-radius: 50% 100% 0% 50% / 0% 50% 100% 100%;
+    color: $primary-color;
+    background-color: $senary-color;
   }
 
-  .activity-btn:hover {
-
+.activity-btn:hover {
+    border-radius: 85% 0% 0% 100% / 50% 0% 50% 50% ;
+    color: darken($quaternary-color, 20%);
+    background-color: lighten($secondary-color, 20%);;
   }
 
-  .book-btn {
-
-  }
-
-  .book-btn:hover {
-
+.book-btn {
+      border-radius: 0% 100% 100% 0% / 50% 50% 50% 50% ;
+      background-color: $senary-color;
+      color: $quinary-color;
+    }
+    
+.book-btn:hover {
+      border-radius: 85% 85% 85% 0% / 50% 0% 50% 50%;
+      background-color: $quaternary-color;
+      color: $tertiary-color;
   }
 
   .notesDiv {
 
   }
 
+  .searchDiv {
+      text-align: center;
+  }
+
   .fun-text {
     background-image: linear-gradient(225deg, $primary-color, $secondary-color, $tertiary-color, $quaternary-color);
+    filter: drop-shadow(0 20px 30px #28d8ff33);
+    color: black;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-box-decoration-break: clone;
+    font-size: x-large;
+  }
+
+  .fun-text-2 {
+    background-image: linear-gradient(225deg, $primary-color, lighten($secondary-color, 10%), lighten($tertiary-color, 15%), lighten($quaternary-color, 20%));
     filter: drop-shadow(0 20px 30px #28d8ff33);
     color: black;
     -webkit-text-fill-color: transparent;

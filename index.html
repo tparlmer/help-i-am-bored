@@ -24,7 +24,7 @@
         <input type="checkbox" name="ossm"> 
         <label for="ossm">
           <div class="clicked">
-            <p>Are you bored?<i class="arrow right"></i></p>
+            <p>Are you bored?<br /> (click to the right)<i class="arrow right"></i></p>
           </div>
         </label> 
         </div>
@@ -33,7 +33,7 @@
         <input type="checkbox" name="ossm"> 
         <label for="ossm">
           <div class="clicked2">
-            <p>Would you like some help?<i class="arrow down"></i></p></div>
+            <p>Would you like some help?<br />(click below)<i class="arrow down"></i></p></div>
         </label> 
         </div>
           
@@ -50,7 +50,7 @@
         <input type="checkbox" name="ossm"> 
         <label for="ossm">
           <div class="clicked4">
-            <p>The Chosen Ones are here to help!<i class="arrow left"></i></p>
+            <p>The Chosen Ones are here to help!<br /> (click to the left)<i class="arrow left"></i></p>
           </div>
         </label> 
         </div>
@@ -63,8 +63,8 @@
 
     <!--Options to select-->
     <section id="searchDiv" class="searchDiv ">
-        <button type="button" id="searchActivity">Search Activity</button>
-        <button type="button" id="searchBooks">Search Books</button>  
+        <button type="button" id="searchActivity" class="activity-btn btn">Search Activity</button>
+        <button type="button" id="searchBooks"class="book-btn btn" >Search Books</button>  
         
         <div id="activities"></div>
         <div id="books"></div>
@@ -73,13 +73,14 @@
 
     <!--Notes Div-->
     <section id="notesDiv" class="notesDiv container">
+      <p class="fun-text-2">Click on the "search books"<br /> to find a random book, or <br /> click on the "search activity"<br/ > to find a random activity.</p>
         <form>
             <label>Notes</label>
             <!-- <textarea id="notesId" name="userNotes" rows="10" cols="50"> </textarea> -->
             <textarea id="notesId" name="userNotes" class="textarea" placeholder="e.g. Hello world"></textarea>
             <br><br>
-            <button type="button" id = "saveBtn" value="Save">Save</button>
-            <button type="button" id="sendEmail">Send Email</button>
+            <button type="button" id = "saveBtn" value="Save" class="btn">Save</button>
+            <button type="button" id="sendEmail" >Send Email</button>
                 <!-- <a href="mailto:testemail@yopmail.com?subject=Notes from today!">Send Email</a> -->            
         </form>        
     </section>
