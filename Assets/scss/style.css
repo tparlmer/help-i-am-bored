@@ -48,14 +48,14 @@
 
 .container input[type=checkbox]:checked + label > .clicked {
   background-color: #e0ed09;
-  color: #ffffff;
+  color: #000000;
   -webkit-animation: mymove .5s;
           animation: mymove .5s;
 }
 
 .container input[type=checkbox]:checked + label > .clicked2 {
   background-color: #5b97b6;
-  color: #ffffff;
+  color: #000000;
   -webkit-animation: mymove2 .5s;
           animation: mymove2 .5s;
 }
@@ -199,6 +199,7 @@
   vertical-align: center;
   text-align: center;
   border-radius: 50%;
+  font-size: large;
 }
 
 .help-btn {
@@ -236,14 +237,26 @@
 
 .book-btn {
   border-radius: 0% 100% 100% 0% / 50% 50% 50% 50%;
-  background-color: #000000;
-  color: #ffffff;
+  color: #693f0b;
+  background-color: #a2c4d5;
 }
 
 .book-btn:hover {
   border-radius: 85% 85% 85% 0% / 50% 0% 50% 50%;
+  color: #838b05;
+  background-color: #000000;
+}
+
+.save-btn {
+  border-radius: 0% 100% 100% 0% / 0% 100% 0% 0%;
   background-color: #c57615;
-  color: #5b2a2a;
+  color: #000000;
+}
+
+.save-btn:hover {
+  border-radius: 100% 0% 0% 100% / 0% 0% 0% 100%;
+  background-color: #000000;
+  color: #c57615;
 }
 
 .searchDiv {
