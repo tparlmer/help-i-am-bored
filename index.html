@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./Assets/style.css" />
+    <link rel="stylesheet" href="./Assets/scss/style.css" />
+    <link rel="stylesheet" href="./Assets/scss/style.scss" />
     <title>Project One</title>
   </head>
 
@@ -15,8 +16,47 @@
 
     <!--Welcome Div-->
     <section id="homeDiv" class="homeDiv">
-        <h2>I am Bored</h2>
-        <button id="helpButton">Help!</button>
+      <div class="body">
+
+        <div class="container">
+        <input type="checkbox" name="ossm"> 
+        <label for="ossm">
+          <div class="clicked">
+            <p>Are you bored?<i class="arrow right"></i></p>
+          </div>
+        </label> 
+        </div>
+        
+        <div class="container">
+        <input type="checkbox" name="ossm"> 
+        <label for="ossm">
+          <div class="clicked2">
+            <p>Would you like some help?<i class="arrow down"></i></p></div>
+        </label> 
+        </div>
+          
+        <div class="container">
+        <input type="checkbox" name="ossm"> 
+        <label for="ossm">
+          <div class="clicked3">
+            <p>Click below to help us help you.<i class="arrow down"></i></p>
+          </div>
+        </label> 
+        </div>
+        
+        <div class="container">
+        <input type="checkbox" name="ossm"> 
+        <label for="ossm">
+          <div class="clicked4">
+            <p>The Chosen Ones are here to help!<i class="arrow left"></i></p>
+          </div>
+        </label> 
+        </div>
+        
+        </div>
+        <div>
+        <button id="helpButton" class='help-btn' type="submit">Help!</button>
+        </div>
     </section>
 
     <!--Options to select-->

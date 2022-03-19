@@ -1,0 +1,143 @@
+$primary-color: #838b05;
+$secondary-color: #5b97b6;
+$tertiary-color: #5b2a2a;
+$quaternary-color: #c57615;
+$quinary-color: #ffffff;
+$senary-color: #000000;
+
+*, html {
+    margin: 0px;
+  }
+  /*body {
+    background-image: linear-gradient(to left, #a18cd1 0%, #fbc2eb 100%);
+  }*/
+  
+  .body {
+    width: 605px;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: 55px;
+  }
+  .container {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    width: 300px;
+    height: 150px;
+    margin-top: 2.5px;
+    background-color: $senary-color;
+    display: inline-block;
+    input[type=checkbox] {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    } 
+    .clicked, .clicked2, .clicked3, .clicked4 {
+      p {
+          visibility: hidden;
+          position: absolute;
+       }     
+    }
+      input[type=checkbox]:checked + label > .clicked, input[type=checkbox]:checked + label > .clicked2, input[type=checkbox]:checked + label > .clicked3, input[type=checkbox]:checked + label > .clicked4 {
+        p {
+          visibility: visible;
+          font-family: sans-serif;
+          font-weight: 100;
+          letter-spacing: .5px;
+          text-align: center;
+        }
+        width: 302px;
+        height: 150px;
+        margin-top: -152px;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+      input[type=checkbox]:checked + label > .clicked {
+        background-color: $primary-color;
+        color: $quinary-color;
+        animation: mymove .5s;
+    }
+      input[type=checkbox]:checked + label > .clicked2 {
+        background-color: $secondary-color;
+        color: $quinary-color;
+        animation: mymove2 .5s;
+    }
+     input[type=checkbox]:checked + label > .clicked3 {
+        background-color: $tertiary-color;
+        color: $quinary-color;
+        animation: mymove2 .5s;
+    }
+     input[type=checkbox]:checked + label > .clicked4 {
+        background-color: $quaternary-color;
+        color: $quinary-color;
+        animation: mymove2 .5s;
+    }
+  }
+  
+  @keyframes mymove {
+    100% {transform: rotate(0deg);}
+    75% {transform: rotate(90deg);}
+    50% {transform: rotate(180deg);}
+    35% {transform: rotate(270deg);}
+    0% {transform: rotate(360deg);}
+  }
+  
+  @keyframes mymove2 {
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(90deg);}
+    50% {transform: rotate(180deg);}
+    75% {transform: rotate(270deg);}
+    100% {transform: rotate(360deg);}
+  }
+  
+  .arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+  
+  .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+  
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+
+  btn {
+      
+  }
+
+  help-btn {
+width: 50%;
+  }
+
+  help-btn:hover {
+    
+  }
+
+  activity-btn {
+
+  }
+
+  activity-btn:hover {
+
+  }
+
+  book-btn {
+
+  }
+
+  book-btn:hover {
+
+  }
