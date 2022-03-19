@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./Assets/scss/style.css" />
     <link rel="stylesheet" href="./Assets/scss/style.scss" />
     <title>Project One</title>
@@ -16,6 +17,7 @@
 
     <!--Welcome Div-->
     <section id="homeDiv" class="homeDiv">
+      <p class="fun-text">Click top left rectangle to start your adventure!</p>
       <div class="body">
 
         <div class="container">
@@ -35,14 +37,14 @@
         </label> 
         </div>
           
-        <div class="container">
+        <div class="container" id="container1">
         <input type="checkbox" name="ossm"> 
         <label for="ossm">
           <div class="clicked3">
-            <p>Click below to help us help you.<i class="arrow down"></i></p>
+            <p>Click the help button <br />to help us help you.</p>
           </div>
         </label> 
-        </div>
+      </div>
         
         <div class="container">
         <input type="checkbox" name="ossm"> 
@@ -52,15 +54,15 @@
           </div>
         </label> 
         </div>
-        
         </div>
+
         <div>
-        <button id="helpButton" class='help-btn' type="submit">Help!</button>
+        <button id="helpButton" class='help-btn btn' type="submit">Help!</button>
         </div>
     </section>
 
     <!--Options to select-->
-    <section id="searchDiv" class="searchDiv">
+    <section id="searchDiv" class="searchDiv ">
         <button type="button" id="searchActivity">Search Activity</button>
         <button type="button" id="searchBooks">Search Books</button>  
         
@@ -70,10 +72,11 @@
     <br/>
 
     <!--Notes Div-->
-    <section id="notesDiv" class="notesDiv">
+    <section id="notesDiv" class="notesDiv container">
         <form>
             <label>Notes</label>
-            <textarea id="notesId" name="userNotes" rows="10" cols="50"> </textarea>
+            <!-- <textarea id="notesId" name="userNotes" rows="10" cols="50"> </textarea> -->
+            <textarea id="notesId" name="userNotes" class="textarea" placeholder="e.g. Hello world"></textarea>
             <br><br>
             <button type="button" id = "saveBtn" value="Save">Save</button>
             <button type="button" id="sendEmail">Send Email</button>

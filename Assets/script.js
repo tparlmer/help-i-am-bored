@@ -87,3 +87,6 @@ sendEmail.addEventListener("click",function(){
   //  email.click();
 }) 
 
+document.querySelector("#container1").addEventListener("click", function() {
+    document.querySelector("#helpButton").style.display = "block";
+})
