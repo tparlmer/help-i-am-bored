@@ -14,7 +14,7 @@ window.addEventListener('load', (event) => {
     noteDiv.value = savedNotes;
 })
 
-helpButton.addEventListener("click",function()
+helpButton.addEventListener("click",function(){
     document.getElementById("searchDiv").style.display = "block";
     document.getElementById("homeDiv").style.display = "none";
     document.getElementById("notesDiv").style.display = "block";
@@ -155,5 +155,4 @@ function fireBookSearch() {
         }
     }) 
 }
-
 
