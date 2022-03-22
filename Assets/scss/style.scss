@@ -1,9 +1,11 @@
-$primary-color: #838b05;
-$secondary-color: #5b97b6;
-$tertiary-color: #5b2a2a;
-$quaternary-color: #c57615;
-$quinary-color: #ffffff;
-$senary-color: #000000;
+@import 'https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'
+
+$primary-color: $yellow;
+$secondary-color: $cyan;
+$tertiary-color: $red;
+$quaternary-color: $orange;
+$quinary-color: $white;
+$senary-color: $black-ter;
 
 // the coolest flip effect ever begins
 *, html {
