@@ -33,7 +33,8 @@ searchActBtn.addEventListener("click",function(){
         console.log(content);
         contentVar.textContent = "Activity: " + data.activity;
         contentVar.textContent += "Type: " + data.type;
-
+        divVar.className =         
+        contentVar.className = "content";
         console.log("data.link"+data.link);
         if(data.link != null && data.link != '') {
             contentVar.textContent += "Link: <a href='" + data.link + "'/>";

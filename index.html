@@ -7,35 +7,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./Assets/style.css" />
+    <link rel="stylesheet" href="./Assets/bulma.css" />
     <title>Project One</title>
   </head>
 
   <body>
 
     <!--Welcome Div-->
-    <section id="homeDiv" class="homeDiv">
+    <section id="homeDiv" class="homeDiv container">
         <h2>I am Bored</h2>
-        <button id="helpButton">Help!</button>
+        <button id="helpButton" class="button is-ghost are-medium">Help!</button>
     </section>
 
     <!--Options to select-->
-    <section id="searchDiv" class="searchDiv">
-        <button type="button" id="searchActivity">Search Activity</button>
-        <button type="button" id="searchBooks">Search Books</button>  
-        
+    <section id="searchDiv" class="searchDiv container">
+        <button type="button" id="searchActivity" class="button is-ghost are-medium">Search Activity</button>
+        <button type="button" id="searchBooks" class="button is-ghost are-medium">Search Books</button>  
         <div id="activities"></div>
         <div id="books"></div>
     </section>   
-    <br/>
+    <!--<br />-->
 
     <!--Notes Div-->
-    <section id="notesDiv" class="notesDiv">
+    <section id="notesDiv" class="notesDiv container box">
         <form>
             <label>Notes</label>
             <textarea id="notesId" name="userNotes" rows="10" cols="50"> </textarea>
             <br><br>
-            <button type="button" id = "saveBtn" value="Save">Save</button>
+            <button type="button" id = "saveBtn" value="Save" class="button is-ghost are-medium">Save</button>
             <button type="button" id="sendEmail">Send Email</button>
                 <!-- <a href="mailto:testemail@yopmail.com?subject=Notes from today!">Send Email</a> -->            
         </form>        
