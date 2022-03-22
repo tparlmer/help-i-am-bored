@@ -22,13 +22,38 @@
     <!--Options to select-->
     <section id="searchDiv" class="searchDiv">
         <button type="button" id="searchActivity">Search Activity</button>
-        <button type="button" id="searchBooks">Search Books</button>  
-        
-        <div id="activities"></div>
-        <div id="books"></div>
-    </section>   
-    <br/>
+        <button type="button" id="searchBooks">Search Books</button>                     
+    </section> 
+    
+    <section id="searchResults" class="searchResults"> 
+        <button type="button" id="backToButtons">Go Back</button>
+        <div id="actDiv">
+            <div id="activities">
+                <p id="actName"></p>
+                <p id="actType"></p>
+                <p id="actLink"></p>
+            </div>
+            <button type="button" id="nxtAct">Next Activity</button>  
+        </div>
+        <div id="bookDiv">
+            <br/>
+            <input type="text" id="bookName">
+            <button type="button" id="searchBook">Search Book</button>
+            <div id="books">
+                <p id="bookName"></p>
+                <p id="bookDesc"></p>
+                <p id="bookLink"></p>
+            </div><br/>
+            <button type="button" id="prevBook">Previous Book</button>
+            <button type="button" id="nxtBook">Next Book</button>
+        </div>
+    </section>
 
+    <!--These should be deleted after adding CSS styling-->
+    <br/><br/><br/><br/>
+    <br/><br/>
+    <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/>
+    
     <!--Notes Div-->
     <section id="notesDiv" class="notesDiv">
         <form>
@@ -36,11 +61,14 @@
             <textarea id="notesId" name="userNotes" rows="10" cols="50"> </textarea>
             <br><br>
             <button type="button" id = "saveBtn" value="Save">Save</button>
-            <button type="button" id="sendEmail">Send Email</button>
-                <!-- <a href="mailto:testemail@yopmail.com?subject=Notes from today!">Send Email</a> -->            
-        </form>        
+            <input type="button" id="downloadBtn" value="Download">         
+        </form> 
     </section>
+
+    <footer>
+        <p>&copy; A Team 4 project</p>
+    </footer>
 
     <script src="./Assets/script.js"></script>
   </body>
-</html>
+</html> 
