@@ -6,7 +6,7 @@ var noteDiv = document.getElementById("notesId");
 let savedNotes = JSON.parse(localStorage.getItem("notes")) || [];
 const dt = new Date();
 
-
+// On load function to display saved notes from local storage
 window.addEventListener('load', (event) => {
     document.getElementById("searchDiv").style.display = "none";
     document.getElementById("notesDiv").style.display = "none";
