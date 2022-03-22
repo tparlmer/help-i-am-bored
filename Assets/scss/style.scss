@@ -1,9 +1,17 @@
+// Google fonts
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;700&display=swap');
+
 $primary-color: #838b05;
 $secondary-color: #5b97b6;
 $tertiary-color: #5b2a2a;
 $quaternary-color: #c57615;
 $quinary-color: #ffffff;
 $senary-color: #000000;
+$google-font-var: 'Source Code Pro', monospace;
+
+* {
+  font-family: $google-font-var;
+}
 
 // flip effect begins
 *, html {
