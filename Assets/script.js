@@ -1,18 +1,17 @@
 var searchActBtn = document.getElementById("searchActivity");
 var searchBookBtn = document.getElementById("searchBooks");
 var saveBtn = document.getElementById("saveBtn");
-var sendEmailBtn = document.getElementById("sendEmail");
 var noteDiv = document.getElementById("notesId");
-let savedNotes = JSON.parse(localStorage.getItem("notes")) || [];
+let savedNotes = localStorage.getItem("notes") || "";
 const dt = new Date();
 
 
 window.addEventListener('load', (event) => {
     document.getElementById("searchDiv").style.display = "none";
-    document.getElementById("notesDiv").style.display = "none";
-    savedNotesJson = JSON.parse(localStorage.getItem("notes"));
-    console.log("savedNotesJson",savedNotesJson);
-    noteDiv.value = savedNotesJson;
+    document.getElementById("notesDiv").style.display = "none"; 
+    document.getElementById("searchResults").style.display = "none";
+    document.getElementById("nxtAct").style.display = "none"; 
+    noteDiv.value = savedNotes;
 })
 
 helpButton.addEventListener("click",function(){
@@ -22,67 +21,138 @@ helpButton.addEventListener("click",function(){
 })
 
 searchActBtn.addEventListener("click",function(){
+    document.getElementById("nxtAct").style.display = "block"; 
+    document.getElementById("searchResults").style.display = "block"; 
+    document.getElementById("actDiv").style.display = "block";
+    document.getElementById("bookDiv").style.display = "none"; 
+    document.getElementById("searchDiv").style.display = "none";
+    fireActSearch();    
+})
+
+nxtAct.addEventListener("click",function(){
+    fireActSearch();
+})
+
+backToButtons.addEventListener("click",function(){
+    document.getElementById("searchResults").style.display = "none"; 
+    document.getElementById("searchDiv").style.display = "block"; 
+})
+
+searchBookBtn.addEventListener("click",function(){
+    console.log("searchBookBtn");
+    document.getElementById("searchResults").style.display = "block";
+    document.getElementById("searchDiv").style.display = "none";
+    document.getElementById("bookDiv").style.display = "block";
+    document.getElementById("nxtBook").style.display = "block"; 
+    document.getElementById("actDiv").style.display = "none";
+
+})
+
+searchBook.addEventListener("click",function(){
+    fireBookSearch();
+})
+
+nxtBook.addEventListener("click",function(){
+    fireBookSearch();
+})
+
+saveBtn.addEventListener("click",function(){
+    console.log("noteText",document.getElementById("notesId")); 
+
+    noteText = noteDiv.value;
+    // console.log("noteText",noteText);
+
+    // if(savedNotes.indexOf(noteText) === -1) {
+    //     savedNotes.push(noteText);
+    // }
+   // localStorage.removeItem("notes");
+    localStorage.setItem("notes",noteText);
+}) 
+
+function createActRows(elemnt,textCnt,typeEl) {
+    console.log("textCnt",textCnt);
+    elemntVar = document.createElement(elemnt);
+    if(typeEl === "text"){
+        elemntVar.textContent = textCnt;
+    }
+    if(typeEl === "link") {
+        linkVar = document.createElement("a");
+        linkVar.textContent = "Learn More";
+        linkVar.setAttribute("href",textCnt);
+        linkVar.setAttribute("target","_blank");
+        elemntVar.append(linkVar);
+    }
+    console.log("elemntVar",elemntVar);
+    return elemntVar;
+}
+
+function fireActSearch() {
     fetch("http://www.boredapi.com/api/activity/")
     .then(function(response){
         return response.json();
     })
     .then(function(data){
-        divVar = document.createElement("div");
-        contentVar = document.createElement("p");
-        var content = data.activity + "\r\n" + data.type +  "\r\n" + data.link;
-        console.log(content);
-        contentVar.textContent = "Activity: " + data.activity;
-        contentVar.textContent += "Type: " + data.type;
 
-        console.log("data.link"+data.link);
+        linkText = '';
         if(data.link != null && data.link != '') {
-            contentVar.textContent += "Link: <a href='" + data.link + "'/>";
+            linkText = data.link;
         }else {
-            linkVar = document.createElement("a");
-            linkVar.textContent = "https://www.google.com/"
-            contentVar.textContent += "Link: ";
-            contentVar.append(linkVar);
+            linkText = "https://www.google.com/search?q=" + data.activity;
         }
-        divVar.append(contentVar);
-        document.getElementById("activities").append(divVar);
-    })
-})
 
-searchBookBtn.addEventListener("click",function(){
-     
-    fetch("https://openlibrary.org/search/authors.json?q==j%20k%20rowling")
+        document.getElementById("actName").textContent = data.activity;
+        document.getElementById("actType").textContent = data.type;
+        
+        linkVar = document.createElement("a");
+        linkVar.textContent = "Learn More";
+        linkVar.setAttribute("href",linkText);
+        linkVar.setAttribute("target","_blank");
+        document.getElementById("actLink").innerHTML = "";
+        document.getElementById("actLink").append(linkVar);
+
+    })
+}
+
+function fireBookSearch() {
+    bookName = document.getElementById("bookName").value;
+    fetch("https://openlibrary.org/search/authors.json?q=="+bookName)
     .then(function(response){
         return response.json();
     })
     .then(function(data){
-        console.log("data"+data.docs[0].name);
-        divVar2 = document.createElement("div");
-        contentVar2 = document.createElement("p");
-        var content2 = data.docs[0].name + "\r\n" + data.docs[0].top_work;
-        console.log(content2);
-        contentVar2.textContent = content2;       
-        document.getElementById("books").appendChild(divVar2); 
-    })
-})
+        if(data != null && data.docs.length > 0) {
+            console.log("data"+data.docs[0].key);
 
-saveBtn.addEventListener("click",function(){
-    console.log("noteText",document.getElementById("notesId"));   
-    noteText = noteDiv.value;
-    console.log("noteText",noteText);
-    savedNotes.push(noteText);
-    savedNotesJson = JSON.parse(localStorage.getItem("notes"));
-    console.log("savedNotesJson",savedNotesJson);
+            fetch("https://openlibrary.org/authors/"+ data.docs[0].key + "/works.json")
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                console.log("data2"+data.entries);
+                const resultEntries = data.entries.filter(word => word.description);
 
-    localStorage.setItem("notes",JSON.stringify(savedNotes));
-})
+                console.log("resultEntries"+resultEntries.length); 
+                
+                if(resultEntries && resultEntries.length>0) {
+                    for(i=0;i<resultEntries.length;i++) {
+                        if(resultEntries.title != null) {
+                            console.log("resultEntries"+resultEntries.title); 
+                            document.getElementById("bookName").textContent = resultEntries[0].title;
+                            document.getElementById("bookDesc").textContent = resultEntries[0].description;
 
-sendEmail.addEventListener("click",function(){
-    noteText = noteDiv.value;
-    var email = document.createElement("a");
-    var userEmail = "hguyguy123@yopmail.com";
-    email.href = "mailto:"+userEmail + "?subject=Notes from "+ dt.getDate + "&body=" + noteText;
-    console.log("emailText",email);
-   
-    sendEmailBtn.appendChild(email);
-  //  email.click();
-}) 
+                            linkVar = document.createElement("a");
+                            linkVar.textContent = resultEntries[0].links[0].url;
+                            linkVar.setAttribute("href",resultEntries[0].links[0].url);
+                            linkVar.setAttribute("target","_blank");
+                            document.getElementById("bookLink").innerHTML = "";
+                            document.getElementById("bookLink").append(linkVar);
+                        }                       
+                    }                   
+                }
+            })
+        } else {
+            console.log("No records found");
+        }
+    }) 
+}
+
