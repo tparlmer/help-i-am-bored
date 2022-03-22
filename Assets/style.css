@@ -1,0 +1,274 @@
+*, html {
+    margin: 0px;
+  }
+  
+  .body {
+    width: 605px;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: 55px;
+  }
+  
+  .container {
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    width: 300px;
+    height: 150px;
+    margin-top: 2.5px;
+    background-color: #000000;
+    display: inline-block;
+  }
+  
+  .container input[type=checkbox] {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+  
+  .container .clicked p, .container .clicked2 p, .container .clicked3 p, .container .clicked4 p {
+    visibility: hidden;
+    position: absolute;
+  }
+  
+  .container input[type=checkbox]:checked + label > .clicked, .container input[type=checkbox]:checked + label > .clicked2, .container input[type=checkbox]:checked + label > .clicked3, .container input[type=checkbox]:checked + label > .clicked4 {
+    width: 302px;
+    height: 150px;
+    margin-top: -152px;
+    -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+  
+  .container input[type=checkbox]:checked + label > .clicked p, .container input[type=checkbox]:checked + label > .clicked2 p, .container input[type=checkbox]:checked + label > .clicked3 p, .container input[type=checkbox]:checked + label > .clicked4 p {
+    visibility: visible;
+    font-family: sans-serif;
+    font-weight: 100;
+    letter-spacing: .5px;
+    text-align: center;
+  }
+  
+  .container input[type=checkbox]:checked + label > .clicked {
+    background-color: #e0ed09;
+    color: #ffffff;
+    -webkit-animation: mymove .5s;
+            animation: mymove .5s;
+  }
+  
+  .container input[type=checkbox]:checked + label > .clicked2 {
+    background-color: #5b97b6;
+    color: #ffffff;
+    -webkit-animation: mymove2 .5s;
+            animation: mymove2 .5s;
+  }
+  
+  .container input[type=checkbox]:checked + label > .clicked3 {
+    background-color: #5b2a2a;
+    color: #ffffff;
+    -webkit-animation: mymove2 .5s;
+            animation: mymove2 .5s;
+  }
+  
+  .container input[type=checkbox]:checked + label > .clicked4 {
+    background-color: #c57615;
+    color: #ffffff;
+    -webkit-animation: mymove2 .5s;
+            animation: mymove2 .5s;
+  }
+  
+  @-webkit-keyframes mymove {
+    100% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    75% {
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg);
+    }
+    50% {
+      -webkit-transform: rotate(180deg);
+              transform: rotate(180deg);
+    }
+    35% {
+      -webkit-transform: rotate(270deg);
+              transform: rotate(270deg);
+    }
+    0% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes mymove {
+    100% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    75% {
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg);
+    }
+    50% {
+      -webkit-transform: rotate(180deg);
+              transform: rotate(180deg);
+    }
+    35% {
+      -webkit-transform: rotate(270deg);
+              transform: rotate(270deg);
+    }
+    0% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  
+  @-webkit-keyframes mymove2 {
+    0% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    25% {
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg);
+    }
+    50% {
+      -webkit-transform: rotate(180deg);
+              transform: rotate(180deg);
+    }
+    75% {
+      -webkit-transform: rotate(270deg);
+              transform: rotate(270deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes mymove2 {
+    0% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    25% {
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg);
+    }
+    50% {
+      -webkit-transform: rotate(180deg);
+              transform: rotate(180deg);
+    }
+    75% {
+      -webkit-transform: rotate(270deg);
+              transform: rotate(270deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  
+  .arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+  
+  .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+  
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  
+  .btn {
+    height: 5rem;
+    width: 5rem;
+    vertical-align: center;
+    text-align: center;
+    border-radius: 50%;
+  }
+  
+  .help-btn {
+    font-weight: 900;
+    font-size: x-large;
+    background-color: #c57615;
+    color: #254353;
+    border-radius: 50% 0% 100% 0% / 100% 0% 50% 0%;
+  }
+  
+  .help-btn:hover {
+    background-color: #254353;
+    color: #c57615;
+    height: 8rem;
+    width: 8rem;
+    border-radius: 0% 100% 100% 100% / 100% 100% 100% 100%;
+  }
+  
+  .help-btn::before {
+    -webkit-transform: rotate(-60deg);
+            transform: rotate(-60deg);
+  }
+  
+  .activity-btn {
+    border-radius: 50% 100% 0% 50% / 0% 50% 100% 100%;
+    color: #838b05;
+    background-color: #000000;
+  }
+  
+  .activity-btn:hover {
+    border-radius: 85% 0% 0% 100% / 50% 0% 50% 50%;
+    color: #693f0b;
+    background-color: #a2c4d5;
+  }
+  
+  .book-btn {
+    border-radius: 0% 100% 100% 0% / 50% 50% 50% 50%;
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  .book-btn:hover {
+    border-radius: 85% 85% 85% 0% / 50% 0% 50% 50%;
+    background-color: #c57615;
+    color: #5b2a2a;
+  }
+  
+  .searchDiv {
+    text-align: center;
+  }
+  
+  .fun-text {
+    background-image: linear-gradient(225deg, #838b05, #5b97b6, #5b2a2a, #c57615);
+    -webkit-filter: drop-shadow(0 20px 30px #28d8ff33);
+            filter: drop-shadow(0 20px 30px #28d8ff33);
+    color: black;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-box-decoration-break: clone;
+    font-size: x-large;
+  }
+  
+  .fun-text-2 {
+    background-image: linear-gradient(225deg, #838b05, #7eadc6, #8f4242, #eda853);
+    -webkit-filter: drop-shadow(0 20px 30px #28d8ff33);
+            filter: drop-shadow(0 20px 30px #28d8ff33);
+    color: black;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-box-decoration-break: clone;
+    font-size: x-large;
+  }
+  /*# sourceMappingURL=style.css.map */
