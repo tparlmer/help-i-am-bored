@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./bulma.css" />
     <link rel="stylesheet" href="./Assets/style.css" />
     <title>Project One</title>
   </head>
@@ -15,54 +16,57 @@
 
     <!--Welcome Div-->
     <section id="homeDiv" class="homeDiv">
-        <h2>I am Bored</h2>
-        <button id="helpButton">Help!</button>
+        <div class="container">
+            <h2>I am Bored</h2>
+            <button id="helpButton" class="button is-primary">Help!</button>
+        </div>
     </section>
 
     <!--Options to select-->
     <section id="searchDiv" class="searchDiv">
-        <button type="button" id="searchActivity">Search Activity</button>
-        <button type="button" id="searchBooks">Search Books</button>                     
+        <div class="level container">
+            <button class="level-item button is-primary" type="button" id="searchActivity">Search Activity</button>
+            <button class="level-item button is-primary" type="button" id="searchBooks">Search Books</button>                     
+        </div>
     </section> 
     
     <section id="searchResults" class="searchResults"> 
-        <button type="button" id="backToButtons">Go Back</button>
-        <div id="actDiv">
-            <div id="activities">
-                <p id="actName"></p>
-                <p id="actType"></p>
-                <p id="actLink"></p>
+        <div class="container">
+            <button class="button is-primary" type="button" id="backToButtons">Go Back</button>
+            <div id="actDiv">
+                <div id="activities">
+                    <p id="actName"></p>
+                    <p id="actType"></p>
+                    <p id="actLink"></p>
+                </div>
+                <button class="button is-primary" type="button" id="nxtAct">Next Activity</button>  
             </div>
-            <button type="button" id="nxtAct">Next Activity</button>  
-        </div>
-        <div id="bookDiv">
-            <br/>
-            <input type="text" id="bookName">
-            <button type="button" id="searchBook">Search Book</button>
-            <div id="books">
-                <p id="bookName"></p>
-                <p id="bookDesc"></p>
-                <p id="bookLink"></p>
-            </div><br/>
-            <button type="button" id="prevBook">Previous Book</button>
-            <button type="button" id="nxtBook">Next Book</button>
+            <div id="bookDiv">
+                <br/>
+                <input type="text" id="bookName">
+                <button class="button is-primary" type="button" id="searchBook">Search Book</button>
+                <div id="books">
+                    <p id="bookName"></p>
+                    <p id="bookDesc"></p>
+                    <p id="bookLink"></p>
+                </div><br/>
+                <button class="button is-primary" type="button" id="prevBook">Previous Book</button>
+                <button class="button is-primary" type="button" id="nxtBook">Next Book</button>
+            </div>
         </div>
     </section>
-
-    <!--These should be deleted after adding CSS styling-->
-    <br/><br/><br/><br/>
-    <br/><br/>
-    <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/>
     
     <!--Notes Div-->
-    <section id="notesDiv" class="notesDiv">
-        <form>
-            <label>Notes</label>
-            <textarea id="notesId" name="userNotes" rows="10" cols="50"> </textarea>
-            <br><br>
-            <button type="button" id = "saveBtn" value="Save">Save</button>
-            <input type="button" id="downloadBtn" value="Download">         
-        </form> 
+    <section id="notesDiv" class="container notesDiv">
+        <div class="control">
+            <form class="field">
+                <label class="label">Notes</label>
+                <textarea class="textarea" id="notesId" name="userNotes" rows="10" cols="50" placeholder="write something down!"> </textarea>
+                <br><br>
+                <button class="button is-primary" type="button" id = "saveBtn" value="Save">Save</button>
+                <input class="button is-primary" type="button" id="downloadBtn" value="Download">         
+            </form> 
+        </div>
     </section>
 
     <footer>
