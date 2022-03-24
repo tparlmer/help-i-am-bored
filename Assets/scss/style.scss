@@ -1,0 +1,211 @@
+@import 'https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'
+
+$primary-color: $yellow;
+$secondary-color: $cyan;
+$tertiary-color: $red;
+$quaternary-color: $orange;
+$quinary-color: $white;
+$senary-color: $black-ter;
+
+// the coolest flip effect ever begins
+*, html {
+    margin: 0px;
+  }
+  
+  .body {
+    width: 605px;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: 55px;
+  }
+  .container {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    width: 300px;
+    height: 150px;
+    margin-top: 2.5px;
+    background-color: $senary-color;
+    display: inline-block;
+    input[type=checkbox] {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    } 
+    .clicked, .clicked2, .clicked3, .clicked4 {
+      p {
+          visibility: hidden;
+          position: absolute;
+       }     
+    }
+      input[type=checkbox]:checked + label > .clicked, input[type=checkbox]:checked + label > .clicked2, input[type=checkbox]:checked + label > .clicked3, input[type=checkbox]:checked + label > .clicked4 {
+        p {
+          visibility: visible;
+          font-family: sans-serif;
+          font-weight: 100;
+          letter-spacing: .5px;
+          text-align: center;
+        }
+        width: 302px;
+        height: 150px;
+        margin-top: -152px;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+      input[type=checkbox]:checked + label > .clicked {
+        background-color: lighten($primary-color, 20%);
+        color: $senary-color;
+        animation: mymove .5s;
+    }
+      input[type=checkbox]:checked + label > .clicked2 {
+        background-color: $secondary-color;
+        color: $senary-color;
+        animation: mymove2 .5s;
+    }
+     input[type=checkbox]:checked + label > .clicked3 {
+        background-color: $tertiary-color;
+        color: $quinary-color;
+        animation: mymove2 .5s;
+    }
+     input[type=checkbox]:checked + label > .clicked4 {
+        background-color: $quaternary-color;
+        color: $quinary-color;
+        animation: mymove2 .5s;
+    }
+  }
+  
+  //Look mom I made an unnecessary arrow
+  @keyframes mymove {
+    100% {transform: rotate(0deg);}
+    75% {transform: rotate(90deg);}
+    50% {transform: rotate(180deg);}
+    35% {transform: rotate(270deg);}
+    0% {transform: rotate(360deg);}
+  }
+  
+  @keyframes mymove2 {
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(90deg);}
+    50% {transform: rotate(180deg);}
+    75% {transform: rotate(270deg);}
+    100% {transform: rotate(360deg);}
+  }
+  
+  .arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+  
+  .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+  
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+
+  //playing with buttons
+  .btn {
+    height: 5rem;
+    width: 5rem;
+    vertical-align: center;
+    text-align: center;
+    border-radius: 50%;
+    font-size: large;
+  }
+
+  .help-btn {
+    //display: none;
+    font-weight: 900;
+    font-size: x-large;
+    background-color: $quaternary-color;
+    color: darken($secondary-color, 30%);
+    border-radius: 50% 0% 100% 0% / 100% 0% 50% 0%;
+  }
+
+  .help-btn:hover {
+    background-color: darken($secondary-color, 30%);
+    color: $quaternary-color;
+    height: 8rem;
+    width: 8rem;
+    border-radius: 0% 100% 100% 100% / 100% 100% 100% 100%;
+  }
+
+  .help-btn::before {
+      transform: rotate(-60deg);
+  }
+
+  .activity-btn {
+    border-radius: 50% 100% 0% 50% / 0% 50% 100% 100%;
+    color: $primary-color;
+    background-color: $senary-color;
+  }
+
+.activity-btn:hover {
+    border-radius: 85% 0% 0% 100% / 50% 0% 50% 50% ;
+    color: darken($quaternary-color, 20%);
+    background-color: lighten($secondary-color, 20%);;
+  }
+
+.book-btn {
+      border-radius: 0% 100% 100% 0% / 50% 50% 50% 50% ;
+      color: darken($quaternary-color, 20%);
+    background-color: lighten($secondary-color, 20%);;
+    }
+    
+.book-btn:hover {
+      border-radius: 85% 85% 85% 0% / 50% 0% 50% 50%;
+      color: $primary-color;
+      background-color: $senary-color;
+  }
+
+  .save-btn {
+border-radius: 0% 100% 100% 0% / 0% 100% 0% 0%;
+background-color: $quaternary-color;
+color: $senary-color;
+  }
+
+.save-btn:hover {
+border-radius: 100% 0% 0% 100% / 0% 0% 0% 100%;
+background-color: $senary-color;
+color: $quaternary-color;
+}
+
+  .notesDiv {
+
+  }
+
+  .searchDiv {
+      text-align: center;
+  }
+
+  .fun-text {
+    background-image: linear-gradient(225deg, $primary-color, $secondary-color, $tertiary-color, $quaternary-color);
+    filter: drop-shadow(0 20px 30px #28d8ff33);
+    color: black;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-box-decoration-break: clone;
+    font-size: x-large;
+  }
+
+  .fun-text-2 {
+    background-image: linear-gradient(225deg, $primary-color, lighten($secondary-color, 10%), lighten($tertiary-color, 15%), lighten($quaternary-color, 20%));
+    filter: drop-shadow(0 20px 30px #28d8ff33);
+    color: black;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-box-decoration-break: clone;
+    font-size: x-large;
+  }
