@@ -18,14 +18,14 @@
     <div id="page-container">
       <div id="content-wrap">
         <section class="columns is-centered contSection">
-          <!--Welcome Div has-background-""-->
-          <section id="homeDiv" class="homeDiv hero columns is-centered">
-            <div class="container has-text-centered is-rcentered">
+          <!--Welcome Div-->
+          <section id="homeDiv" class="homeDiv hero columns is-centered" style="padding-top: 22%;">
+            <div class="container has-text-centered">
               <div>
                 <h2 class="gradient-text is-size-1">How would you like to spend your time?</h2>
               </div>
               <div>
-                <button id="helpButton" class="button is-primary">Help!</button>
+                <button id="helpButton" class="button is-primary is-large">Help!</button>
               </div>
             </div>
           </section>
@@ -43,7 +43,7 @@
             <div class="container">
               <button class="button is-primary" type="button" id="backToButtons">Go Back</button>
               <div id="actDiv">
-                <div id="activities" class="has-text-white is-size-3">
+                <div id="activities" class="has-text-white is-size-3-desktop is-size-4-tablet is-size-5">
                   <p id="actName"></p>
                   <p id="actType"></p>
                   <p id="actInfo">
@@ -69,15 +69,19 @@
         </section>
       
         <!--Notes Div-->
-        <section id="notesDiv" class="container notesDiv contSection">
+        <section id="notesDiv" class="container notesDiv contSection has-text-white">
           <div class="control">
             <form class="field">
-              <label class="label">Like to take notes?</label>
+              <label class="label has-text-white">Like to take notes?</label>
                 <p>Take notes here browsing through the application and download when you leave</p>
               <textarea class="textarea" id="notesId" name="userNotes" rows="10" cols="50" placeholder="Write something down!"> </textarea>
               <br><br>
-              <button class="button is-danger is-medium" type="button" id = "saveBtn" value="Save">Save</button>
-              <input class="button is-danger is-medium" type="button" id="downloadBtn" value="Download">         
+              <div class="columns is-centered">
+                <div class="level container is-grouped"></div>
+              <button class="button is-danger is-medium m-2" type="button" id = "saveBtn" value="Save" >Save</button>
+              <input class="button is-danger is-medium m-2" type="button" id="downloadBtn" value="Download">    
+              </div>   
+            </div> 
             </form> 
           </div>
         </section>
