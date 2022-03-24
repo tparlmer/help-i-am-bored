@@ -7,84 +7,89 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="./Assets/scss/style.css" />
-    <link rel="stylesheet" href="./Assets/scss/style.scss" />
+    <link rel="stylesheet" href="./bulma.css" />
+    <link rel="stylesheet" href="./Assets/css/style.css" />
+
     <title>Project One</title>
-  </head>
+  
+   </head>
 
-  <body>
+  <body class="gradient">
+    <div id="page-container">
+      <div id="content-wrap">
+        <section class="columns is-centered contSection">
+          <!--Welcome Div-->
+          <section id="homeDiv" class="homeDiv hero columns is-centered" style="padding-top: 22%;">
+            <div class="container has-text-centered">
+              <div>
+                <h2 class="gradient-text is-size-1">How would you like to spend your time?</h2>
+              </div>
+              <div>
+                <button id="helpButton" class="button is-primary is-large">Help!</button>
+              </div>
+            </div>
+          </section>
 
-    <!--Welcome Div-->
-    <section id="homeDiv" class="homeDiv">
-      <p class="fun-text">Click top left rectangle to start your adventure!</p>
-      <div class="body">
-
-        <div class="container">
-        <input type="checkbox" name="ossm"> 
-        <label for="ossm">
-          <div class="clicked">
-            <p>Are you bored?<br /> (click to the right)<i class="arrow right"></i></p>
-          </div>
-        </label> 
-        </div>
         
-        <div class="container">
-        <input type="checkbox" name="ossm"> 
-        <label for="ossm">
-          <div class="clicked2">
-            <p>Would you like some help?<br />(click below)<i class="arrow down"></i></p></div>
-        </label> 
-        </div>
-          
-        <div class="container" id="container1">
-        <input type="checkbox" name="ossm"> 
-        <label for="ossm">
-          <div class="clicked3">
-            <p>Click the help button <br />to help us help you.</p>
+          <!--Options to select-->
+          <section id="searchDiv" class="searchDiv columns is-centered">
+            <div class="level container is-grouped">
+                  <button class="level-item button is-primary m-2" type="button" id="searchActivity">Search Activity</button>
+                  <button class="level-item button is-primary m-2" type="button" id="searchBooks">Search Books</button>                     
+              </div>
+          </section> 
+        
+          <section id="searchResults" class="searchResults"> 
+            <div class="container">
+              <button class="button is-primary" type="button" id="backToButtons">Go Back</button>
+              <div id="actDiv">
+                <div id="activities" class="has-text-white is-size-4-tablet is-size-5">
+                  <p id="actName"></p>
+                  <p id="actType"></p>
+                  <p id="actInfo">
+                    <p id="actLink"></p>
+                  </p>
+                </div>
+                <button class="button is-primary" type="button" id="nxtAct">Next Activity</button>  
+              </div>
+              <div id="bookDiv">
+                <br/>
+                <p class="control has-icons-left">
+                  <input type="text" id="bookName" class="input is-normal is-focused" placeholder="Search by Author Name"><br />
+                  <span class="icon is-left">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                  </span>
+                </p>
+                <button class="button is-primary" type="button" id="searchBook">Search Book</button>
+                <div id="books" class="content"> 
+                </div><br/>
+              </div>
+            </div>
+          </section>
+        </section>
+      
+        <!--Notes Div-->
+        <section id="notesDiv" class="container notesDiv contSection has-text-white">
+          <div class="control">
+            <form class="field">
+              <label class="label has-text-white">Like to take notes?</label>
+                <p>Take notes here browsing through the application and download when you leave</p>
+              <textarea class="textarea" id="notesId" name="userNotes" rows="10" cols="50" placeholder="Write something down!"> </textarea>
+              <br><br>
+              <div class="columns is-centered">
+                <div class="level container is-grouped"></div>
+              <button class="button is-danger is-medium m-2" type="button" id = "saveBtn" value="Save" >Save</button>
+              <input class="button is-danger is-medium m-2" type="button" id="downloadBtn" value="Download">    
+              </div>   
+            </div> 
+            </form> 
           </div>
-        </label> 
+        </section>
       </div>
-        
-        <div class="container">
-        <input type="checkbox" name="ossm"> 
-        <label for="ossm">
-          <div class="clicked4">
-            <p>The Chosen Ones are here to help!<br /> (click to the left)<i class="arrow left"></i></p>
-          </div>
-        </label> 
-        </div>
-        </div>
-
-        <div>
-        <button id="helpButton" class='help-btn btn' type="submit">Help!</button>
-        </div>
-    </section>
-
-    <!--Options to select-->
-    <section id="searchDiv" class="searchDiv ">
-        <button type="button" id="searchActivity" class="activity-btn btn">Search Activity</button>
-        <button type="button" id="searchBooks"class="book-btn btn" >Search Books</button>  
-        
-        <div id="activities"></div>
-        <div id="books"></div>
-    </section>   
-    <br/>
-
-    <!--Notes Div-->
-    <section id="notesDiv" class="notesDiv container">
-      <p class="fun-text-2">Click on the "search books"<br /> to find a random book, or <br /> click on the "search activity"<br/ > to find a random activity.</p>
-        <form>
-            <label>Notes</label>
-            <!-- <textarea id="notesId" name="userNotes" rows="10" cols="50"> </textarea> -->
-            <textarea id="notesId" name="userNotes" class="textarea" placeholder="e.g. Hello world"></textarea>
-            <br><br>
-            <button type="button" id = "saveBtn" value="Save" class="save-btn btn">Save</button>
-            <button type="button" id="sendEmail" >Send Email</button>
-                <!-- <a href="mailto:testemail@yopmail.com?subject=Notes from today!">Send Email</a> -->            
-        </form>        
-    </section>
-
-    <script src="./Assets/script.js"></script>
-  </body>
-</html>
+    </div>
+    <!--<footer id="footer">
+      <p>&copy; A Team 4 project</p>
+    </footer>-->
+      <script src="./Assets/script.js"></script>
+    </body>
+    </html> 

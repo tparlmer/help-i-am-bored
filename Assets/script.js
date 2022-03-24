@@ -1,18 +1,18 @@
 var searchActBtn = document.getElementById("searchActivity");
 var searchBookBtn = document.getElementById("searchBooks");
 var saveBtn = document.getElementById("saveBtn");
-var sendEmailBtn = document.getElementById("sendEmail");
 var noteDiv = document.getElementById("notesId");
-let savedNotes = JSON.parse(localStorage.getItem("notes")) || [];
+let savedNotes = localStorage.getItem("notes") || "";
 const dt = new Date();
 
-
+// On page load, hide all the sections except the Welcome Div
+// On page load, display saved notes from local storage
 window.addEventListener('load', (event) => {
     document.getElementById("searchDiv").style.display = "none";
-    document.getElementById("notesDiv").style.display = "none";
-    savedNotesJson = JSON.parse(localStorage.getItem("notes"));
-    console.log("savedNotesJson",savedNotesJson);
-    noteDiv.value = savedNotesJson;
+    document.getElementById("notesDiv").style.display = "none"; 
+    document.getElementById("searchResults").style.display = "none";
+    document.getElementById("nxtAct").style.display = "none"; 
+    noteDiv.value = savedNotes;
 })
 
 helpButton.addEventListener("click",function(){
@@ -21,72 +21,165 @@ helpButton.addEventListener("click",function(){
     document.getElementById("notesDiv").style.display = "block";
 })
 
+// On click of Search Activity button, fire Bored Api 
 searchActBtn.addEventListener("click",function(){
+    document.getElementById("nxtAct").style.display = "block"; 
+    document.getElementById("searchResults").style.display = "block"; 
+    document.getElementById("actDiv").style.display = "block";
+    document.getElementById("bookDiv").style.display = "none"; 
+    document.getElementById("searchDiv").style.display = "none";
+    fireActSearch();    
+})
+
+// When Next button is clicked on activities screen, fire the Bored Api again and get a random activity
+nxtAct.addEventListener("click",function(){
+    fireActSearch();
+})
+
+// Go back to Search buttons screen
+backToButtons.addEventListener("click",function(){
+    document.getElementById("searchResults").style.display = "none"; 
+    document.getElementById("searchDiv").style.display = "block"; 
+})
+
+// Display the screen to input author name
+searchBookBtn.addEventListener("click",function(){
+    console.log("searchBookBtn");
+    document.getElementById("searchResults").style.display = "block";
+    document.getElementById("searchDiv").style.display = "none";
+    document.getElementById("bookDiv").style.display = "block"; 
+    document.getElementById("actDiv").style.display = "none";
+    document.getElementById("bookName").value = '';
+    document.getElementById("books").textContent = '';
+})
+
+// On click of Search Book button, fire Open Library Api
+searchBook.addEventListener("click",function(){
+    fireBookSearch();
+})
+
+// Save notes entered in local storage
+saveBtn.addEventListener("click",function(){
+    console.log("noteText",document.getElementById("notesId")); 
+
+    noteText = noteDiv.value;
+    localStorage.setItem("notes",noteText);
+}) 
+
+// Bored Api
+function fireActSearch() {
     fetch("http://www.boredapi.com/api/activity/")
     .then(function(response){
         return response.json();
     })
     .then(function(data){
-        divVar = document.createElement("div");
-        contentVar = document.createElement("p");
-        var content = data.activity + "\r\n" + data.type +  "\r\n" + data.link;
-        console.log(content);
-        contentVar.textContent = "Activity: " + data.activity;
-        contentVar.textContent += "Type: " + data.type;
 
-        console.log("data.link"+data.link);
+        linkText = '';
         if(data.link != null && data.link != '') {
-            contentVar.textContent += "Link: <a href='" + data.link + "'/>";
+            linkText = data.link;
         }else {
-            linkVar = document.createElement("a");
-            linkVar.textContent = "https://www.google.com/"
-            contentVar.textContent += "Link: ";
-            contentVar.append(linkVar);
+            linkText = "https://www.google.com/search?q=" + data.activity;
         }
-        divVar.append(contentVar);
-        document.getElementById("activities").append(divVar);
+
+        document.getElementById("actName").textContent = "Activity : " + data.activity;
+        document.getElementById("actType").textContent = "Type of Activity : " + data.type;
+        document.getElementById("actInfo").textContent = "Interested in learning more about the activity? ";
+        
+        linkVar = document.createElement("a");
+        linkVar.textContent = "Learn More";
+        linkVar.setAttribute("href",linkText);
+        linkVar.setAttribute("target","_blank");
+        document.getElementById("actLink").innerHTML = "";
+        document.getElementById("actLink").appendChild(linkVar);
+
     })
-})
+}
 
-searchBookBtn.addEventListener("click",function(){
-     
-    fetch("https://openlibrary.org/search/authors.json?q==j%20k%20rowling")
-    .then(function(response){
-        return response.json();
-    })
-    .then(function(data){
-        console.log("data"+data.docs[0].name);
-        divVar2 = document.createElement("div");
-        contentVar2 = document.createElement("p");
-        var content2 = data.docs[0].name + "\r\n" + data.docs[0].top_work;
-        console.log(content2);
-        contentVar2.textContent = content2;       
-        document.getElementById("books").appendChild(divVar2); 
-    })
-})
+// Open Library Api
+function fireBookSearch() {
+    bookName = document.getElementById("bookName").value;
 
-saveBtn.addEventListener("click",function(){
-    console.log("noteText",document.getElementById("notesId"));   
-    noteText = noteDiv.value;
-    console.log("noteText",noteText);
-    savedNotes.push(noteText);
-    savedNotesJson = JSON.parse(localStorage.getItem("notes"));
-    console.log("savedNotesJson",savedNotesJson);
+    if(bookName != null && bookName != '') {
+        fetch("https://openlibrary.org/search/authors.json?q=="+bookName)
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(data){
+            if(data != null && data.docs.length > 0) {
+                console.log("data"+data.docs[0].key);
 
-    localStorage.setItem("notes",JSON.stringify(savedNotes));
-})
+                fetch("https://openlibrary.org/authors/"+ data.docs[0].key + "/works.json")
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(data){
+                    const resultEntries = data.entries.filter(word => word.description);
 
-sendEmail.addEventListener("click",function(){
-    noteText = noteDiv.value;
-    var email = document.createElement("a");
-    var userEmail = "hguyguy123@yopmail.com";
-    email.href = "mailto:"+userEmail + "?subject=Notes from "+ dt.getDate + "&body=" + noteText;
-    console.log("emailText",email);
-   
-    sendEmailBtn.appendChild(email);
-  //  email.click();
-}) 
+                    console.log("resultEntries",resultEntries); 
+                    
+                    if(resultEntries && resultEntries.length>0) {
+                        ulVar = document.createElement("ul");
+                        document.getElementById("books").textContent = '';
+                        for(i=0;i<resultEntries.length;i++) {
 
-document.querySelector("#container1").addEventListener("click", function() {
-    document.querySelector("#helpButton").style.display = "block";
-})
+                            if(!(resultEntries[i].title != null && resultEntries[i].title != undefined &&
+                                resultEntries[i].links != null)) {
+                                continue;
+                            }
+
+                            var descStr = resultEntries[i].description + "";
+                            if(descStr.toUpperCase() === "[OBJECT OBJECT]") {
+                                continue;
+                            }
+
+                            console.log("resultEntries"+resultEntries[i].title + resultEntries[i].links[0].url);  
+                            
+                          /*  liVar = document.createElement("li"); 
+                            liVar.setAttribute("id",resultEntries[i]);*/
+
+                            liDiv = document.createElement("div");
+
+                            divHVar = document.createElement("h2");  
+                            divHVar.setAttribute("style","background-color: coral;font-weight: bold;margin: 0px;");                       
+                            divHVar.textContent = resultEntries[i].title;
+
+                            divPVar = document.createElement("p");
+                            divPVar.setAttribute("style","background-color: #ef595947;color: black;margin: 0px;");                           
+                            divPVar.textContent = resultEntries[i].description;
+
+                            liDiv.appendChild(divHVar);
+                            liDiv.appendChild(divPVar);
+
+                          //  liVar.append(liDiv);
+
+                           /* liHVar = document.createElement("h3");                           
+                            liHVar.textContent = resultEntries[i].title;
+                            liVar.appendChild(liHVar);
+                            descDivVar = document.createElement("div");
+                            
+                            var indexChar = resultEntries[i].description.lastIndexOf('\r\n');
+                            var descVar = resultEntries[i].description;
+                            if(indexChar != -1) {
+                                descVar = resultEntries[i].description.substring(0, resultEntries[i].description.indexOf('\r\n'));
+                            } 
+                            
+                            descDivVar.textContent = resultEntries[i].description;
+                            liVar.appendChild(descDivVar);*/
+                           // ulVar.appendChild(liVar);
+
+                            
+                            document.getElementById("books").appendChild(liDiv);                      
+                        }              
+                    } else {
+                        document.getElementById("books").textContent = '';
+                        document.getElementById("books").textContent = "No books found for this author";
+                    }
+                })
+            } else {
+                document.getElementById("books").textContent = '';
+                document.getElementById("books").textContent = "No books found for this author";
+            }
+        }) 
+    }
+    
+}

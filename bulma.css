@@ -1,0 +1,16 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+
+.gradient-text {
+    background-image:linear-gradient(to right, hsl(217, 71%, 53%),hsl(141, 53%, 53%));
+    filter: drop-shadow(0 20px 30px #28d8ff33);
+    color: black;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-box-decoration-break: clone;
+    justify-content: center;
+    align-self: center;
+}
+
+.gradient {
+    background-image:linear-gradient(rgba(71, 70, 70, 0.6),hsl(348, 100%, 61%),hsl(171, 100%, 41%));
+}
