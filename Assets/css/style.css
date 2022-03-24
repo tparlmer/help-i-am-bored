@@ -1,0 +1,24 @@
+body { 
+    min-height: 100vh; 
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 1.5rem;   /* Footer height */
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            /* Footer height */
+}   
+
+.contSection {
+    margin: 15px;
+    padding:25px;
+}

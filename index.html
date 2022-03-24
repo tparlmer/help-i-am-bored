@@ -7,40 +7,85 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./Assets/style.css" />
+    <link rel="stylesheet" href="./bulma.css" />
+    <link rel="stylesheet" href="./Assets/css/style.css" />
+
     <title>Project One</title>
-  </head>
+  
+   </head>
 
-  <body>
+  <body class="gradient">
+    <div id="page-container">
+      <div id="content-wrap">
+        <section class="columns is-centered contSection">
+          <!--Welcome Div has-background-""-->
+          <section id="homeDiv" class="homeDiv hero columns is-centered">
+            <div class="container has-text-centered is-rcentered">
+              <div>
+                <h2 class="gradient-text is-size-1">How would you like to spend your time?</h2>
+              </div>
+              <div>
+                <button id="helpButton" class="button is-primary">Help!</button>
+              </div>
+            </div>
+          </section>
 
-    <!--Welcome Div-->
-    <section id="homeDiv" class="homeDiv">
-        <h2>I am Bored</h2>
-        <button id="helpButton">Help!</button>
-    </section>
-
-    <!--Options to select-->
-    <section id="searchDiv" class="searchDiv">
-        <button type="button" id="searchActivity">Search Activity</button>
-        <button type="button" id="searchBooks">Search Books</button>  
         
-        <div id="activities"></div>
-        <div id="books"></div>
-    </section>   
-    <br/>
-
-    <!--Notes Div-->
-    <section id="notesDiv" class="notesDiv">
-        <form>
-            <label>Notes</label>
-            <textarea id="notesId" name="userNotes" rows="10" cols="50"> </textarea>
-            <br><br>
-            <button type="button" id = "saveBtn" value="Save">Save</button>
-            <button type="button" id="sendEmail">Send Email</button>
-                <!-- <a href="mailto:testemail@yopmail.com?subject=Notes from today!">Send Email</a> -->            
-        </form>        
-    </section>
-
-    <script src="./Assets/script.js"></script>
-  </body>
-</html>
+          <!--Options to select-->
+          <section id="searchDiv" class="searchDiv columns is-centered">
+            <div class="level container is-grouped">
+                  <button class="level-item button is-primary m-2" type="button" id="searchActivity">Search Activity</button>
+                  <button class="level-item button is-primary m-2" type="button" id="searchBooks">Search Books</button>                     
+              </div>
+          </section> 
+        
+          <section id="searchResults" class="searchResults"> 
+            <div class="container">
+              <button class="button is-primary" type="button" id="backToButtons">Go Back</button>
+              <div id="actDiv">
+                <div id="activities" class="has-text-white is-size-3">
+                  <p id="actName"></p>
+                  <p id="actType"></p>
+                  <p id="actInfo">
+                    <p id="actLink"></p>
+                  </p>
+                </div>
+                <button class="button is-primary" type="button" id="nxtAct">Next Activity</button>  
+              </div>
+              <div id="bookDiv">
+                <br/>
+                <p class="control has-icons-left">
+                  <input type="text" id="bookName" class="input is-normal is-focused" placeholder="Search by Author Name"><br />
+                  <span class="icon is-left">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                  </span>
+                </p>
+                <button class="button is-primary" type="button" id="searchBook">Search Book</button>
+                <div id="books" class="content"> 
+                </div><br/>
+              </div>
+            </div>
+          </section>
+        </section>
+      
+        <!--Notes Div-->
+        <section id="notesDiv" class="container notesDiv contSection">
+          <div class="control">
+            <form class="field">
+              <label class="label">Like to take notes?</label>
+                <p>Take notes here browsing through the application and download when you leave</p>
+              <textarea class="textarea" id="notesId" name="userNotes" rows="10" cols="50" placeholder="Write something down!"> </textarea>
+              <br><br>
+              <button class="button is-danger is-medium" type="button" id = "saveBtn" value="Save">Save</button>
+              <input class="button is-danger is-medium" type="button" id="downloadBtn" value="Download">         
+            </form> 
+          </div>
+        </section>
+      </div>
+      <footer id="footer">
+        <p>&copy; A Team 4 project</p>
+      </footer>
+    </div>
+      <script src="./Assets/script.js"></script>
+    </body>
+    </html> 
