@@ -183,3 +183,32 @@ function fireBookSearch() {
     }
     
 }
+
+/*
+document.querySelector("#container1").addEventListener("click", function() {
+    document.querySelector("#helpButton").style.display = "block";
+}) */
+
+function download(filename, text) {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+    document.getElementById("notesId").value = '';
+    localStorage.removeItem("notes");
+}
+
+// Start file download.
+document.getElementById("downloadBtn").addEventListener("click", function(){
+    var text = document.getElementById("notesId").value;
+    var filename = "Notes - " + dt.toLocaleDateString();
+    
+    download(filename, text);
+}, false);
+
