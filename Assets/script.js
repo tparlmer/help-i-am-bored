@@ -68,7 +68,7 @@ saveBtn.addEventListener("click",function(){
 
 // Bored Api
 function fireActSearch() {
-    fetch("https://cors-anywhere.herokuapp.com/http://www.boredapi.com/api/activity/")
+    fetch("https://www.boredapi.com/api/activity/")
     .then(function(response){
         return response.json();
     })
