@@ -14,3 +14,7 @@
 .gradient {
     background-image:linear-gradient(rgba(71, 70, 70, 0.6),hsl(348, 100%, 61%),hsl(171, 100%, 41%));
 }
+
+.mar-r {
+    margin-right: 32%;
+}

@@ -34,14 +34,14 @@
           <!--Options to select-->
           <section id="searchDiv" class="searchDiv columns is-centered">
             <div class="level container is-grouped">
-                  <button class="level-item button is-primary m-2" type="button" id="searchActivity">Search Activity</button>
-                  <button class="level-item button is-primary m-2" type="button" id="searchBooks">Search Books</button>                     
+                  <button class="level-item button is-primary is-large" type="button" id="searchActivity">Search Activity</button>
+                  <button class="level-item button is-primary is-large ml-2" type="button" id="searchBooks">Search Books</button>                     
               </div>
           </section> 
         
           <section id="searchResults" class="searchResults"> 
             <div class="container">
-              <button class="button is-primary" type="button" id="backToButtons">Go Back</button>
+              <button class="button is-primary is-large" type="button" id="backToButtons">Go Back</button>
               <div id="actDiv">
                 <div id="activities" class="has-text-white is-size-4-tablet is-size-5">
                   <p id="actName"></p>
@@ -50,7 +50,7 @@
                     <p id="actLink"></p>
                   </p>
                 </div>
-                <button class="button is-primary" type="button" id="nxtAct">Next Activity</button>  
+                <button class="button is-primary is-large" type="button" id="nxtAct">Next Activity</button>  
               </div>
               <div id="bookDiv">
                 <br/>
@@ -60,7 +60,7 @@
                     <i class="fas fa-search" aria-hidden="true"></i>
                   </span>
                 </p>
-                <button class="button is-primary" type="button" id="searchBook">Search Book</button>
+                <button class="button is-primary is-large" type="button" id="searchBook">Search Book</button>
                 <div id="books" class="content"> 
                 </div><br/>
               </div>
@@ -72,14 +72,14 @@
         <section id="notesDiv" class="container notesDiv contSection has-text-white">
           <div class="control">
             <form class="field">
-              <label class="label has-text-white">Like to take notes?</label>
-                <p>Take notes here browsing through the application and download when you leave</p>
+              <label class="label has-text-white is-size-4-tablet is-size-5">Like to take notes?</label>
+                <p class="is-size-4-tablet is-size-5">Take notes here browsing through the application and download when you leave</p>
               <textarea class="textarea" id="notesId" name="userNotes" rows="10" cols="50" placeholder="Write something down!"> </textarea>
               <br><br>
               <div class="columns is-centered">
-                <div class="level container is-grouped"></div>
-              <button class="button is-danger is-medium m-2" type="button" id = "saveBtn" value="Save" >Save</button>
-              <input class="button is-danger is-medium m-2" type="button" id="downloadBtn" value="Download">    
+                <div class="level container columns is-centered"></div>
+              <button class="button is-danger is-large level-item mr-2" type="button" id = "saveBtn" value="Save" >Save</button>
+              <input class="button is-danger is-large level-item mar-r" type="button" id="downloadBtn" value="Download">    
               </div>   
             </div> 
             </form> 
