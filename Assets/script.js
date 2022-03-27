@@ -18,7 +18,7 @@ window.addEventListener('load', (event) => {
 helpButton.addEventListener("click",function(){
     document.getElementById("searchDiv").style.display = "block";
     document.getElementById("homeDiv").style.display = "none";
-    document.getElementById("notesDiv").style.display = "block";
+    document.getElementById("notesDiv").style.display = "none";
 })
 
 // On click of Search Activity button, fire Bored Api 
@@ -28,6 +28,7 @@ searchActBtn.addEventListener("click",function(){
     document.getElementById("actDiv").style.display = "block";
     document.getElementById("bookDiv").style.display = "none"; 
     document.getElementById("searchDiv").style.display = "none";
+    document.getElementById("notesDiv").style.display = "block";
     fireActSearch();    
 })
 
@@ -40,6 +41,7 @@ nxtAct.addEventListener("click",function(){
 backToButtons.addEventListener("click",function(){
     document.getElementById("searchResults").style.display = "none"; 
     document.getElementById("searchDiv").style.display = "block"; 
+    document.getElementById("notesDiv").style.display = "none";
 })
 
 // Display the screen to input author name
@@ -51,6 +53,7 @@ searchBookBtn.addEventListener("click",function(){
     document.getElementById("actDiv").style.display = "none";
     document.getElementById("bookName").value = '';
     document.getElementById("books").textContent = '';
+    document.getElementById("notesDiv").style.display = "block";
 })
 
 // On click of Search Book button, fire Open Library Api
@@ -74,6 +77,7 @@ function fireActSearch() {
     })
     .then(function(data){
 
+        // If api doesn't return url, redirect user to google search
         linkText = '';
         if(data.link != null && data.link != '') {
             linkText = data.link;
@@ -133,9 +137,6 @@ function fireBookSearch() {
                             }
 
                             console.log("resultEntries"+resultEntries[i].title + resultEntries[i].links[0].url);  
-                            
-                          /*  liVar = document.createElement("li"); 
-                            liVar.setAttribute("id",resultEntries[i]);*/
 
                             liDiv = document.createElement("div");
 
@@ -150,24 +151,6 @@ function fireBookSearch() {
                             liDiv.appendChild(divHVar);
                             liDiv.appendChild(divPVar);
 
-                          //  liVar.append(liDiv);
-
-                           /* liHVar = document.createElement("h3");                           
-                            liHVar.textContent = resultEntries[i].title;
-                            liVar.appendChild(liHVar);
-                            descDivVar = document.createElement("div");
-                            
-                            var indexChar = resultEntries[i].description.lastIndexOf('\r\n');
-                            var descVar = resultEntries[i].description;
-                            if(indexChar != -1) {
-                                descVar = resultEntries[i].description.substring(0, resultEntries[i].description.indexOf('\r\n'));
-                            } 
-                            
-                            descDivVar.textContent = resultEntries[i].description;
-                            liVar.appendChild(descDivVar);*/
-                           // ulVar.appendChild(liVar);
-
-                            
                             document.getElementById("books").appendChild(liDiv);                      
                         }              
                     } else {
@@ -184,11 +167,7 @@ function fireBookSearch() {
     
 }
 
-/*
-document.querySelector("#container1").addEventListener("click", function() {
-    document.querySelector("#helpButton").style.display = "block";
-}) */
-
+// Download the saved notes
 function download(filename, text) {
     var element = document.createElement('a');
     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));

@@ -22,3 +22,34 @@ body {
     margin: 15px;
     padding:25px;
 }
+
+#bookDiv p {
+    margin-bottom: 15px;
+}
+
+#searchBook, #backToButtons {
+    margin-bottom: 15px; 
+}
+
+.searchResults {
+    width:100%;
+}
+
+#nxtAct {
+    margin-top: 15px;
+}
+
+.homeDiv {
+    width: 100%;
+    height: 100%;
+}
+
+#imgDiv {
+    width: 100%;
+    height: 100%;
+    background-image: url(../boredImage.jpg);
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    padding: 22%;  
+}
+
